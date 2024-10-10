@@ -15,8 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${AppleTextFont.className} antialiased`}>
-        <header>
-          <nav className="h-[44px] w-full grid place-items-center bg-[#181818]">
+        <div className="w-full h-[44px] bg-[#1d1d1f]"></div>
+        <header className="fixed top-0 w-full">
+          <nav className="h-[44px] w-full grid place-items-center bg-[rgba(22,22,23,0.8)] backdrop-blur-[20px] backdrop-saturate-[180%]">
             <ul className="flex w-full justify-center gap-[22px] mx-[-8px]">
               <li className="px-[8px] w-[30px]">
                 <svg
