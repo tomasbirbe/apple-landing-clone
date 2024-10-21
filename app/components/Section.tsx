@@ -28,7 +28,7 @@ function SecondaryButton({ children, className }: React.ButtonHTMLAttributes<HTM
   return (
     <button
       className={twMerge(
-        "border rounded-full px-[21px] py-[9px]text-[#2997ff] border-[#2997ff] hover:text-[#fff] hover:bg-[#0077ed]",
+        "border rounded-full px-[21px] py-[9px] text-[#2997ff] border-[#2997ff] hover:text-[#fff] hover:bg-[#0077ed]",
         className,
       )}
     >
@@ -37,37 +37,76 @@ function SecondaryButton({ children, className }: React.ButtonHTMLAttributes<HTM
   );
 }
 
-function Text({ children, className }: React.HTMLAttributes<HTMLParagraphElement>) {
-  return <p className={`${AppleDisplayFont.className} ${className}`}>{children}</p>;
+function Title({ children, className }: React.HTMLAttributes<HTMLParagraphElement>) {
+  return (
+    <p
+      className={twMerge(
+        `${AppleDisplayFont.className} font-semibold text-[56px] traking-[-.005em] text-center`,
+        className,
+      )}
+    >
+      {children}
+    </p>
+  );
+}
+function Subtitle({ children, className }: React.HTMLAttributes<HTMLParagraphElement>) {
+  return (
+    <p
+      className={twMerge(
+        `${AppleDisplayFont.className} text-[28px] text-center tracking-[.007em] mt-[6px]`,
+        className,
+      )}
+    >
+      {children}
+    </p>
+  );
 }
 
 const ButtonContainer = ({ children }: React.HTMLAttributes<HTMLDivElement>) => {
   return <div className="flex gap-5 justify-center">{children}</div>;
 };
 
-function Section({ children }: { children: React.ReactNode }) {
+const Header = ({ children, className }: React.HTMLAttributes<HTMLDivElement>) => {
+  return (
+    <div
+      className={twMerge(
+        "row-start-1 col-start-1 h-full pt-12 text-white ",
+        className,
+      )}
+    >
+      {children}
+    </div>
+  );
+};
+
+const Footer = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <div className="row-start-2 gap-7 col-start-1 flex justify-end items-center flex-col w-full h-full pb-10">
+      {/* <Text className="text-[#86868b] text-[21px] tracking-[.011em] leading-[1.19048]">
+      Apple Intelligence coming this fall
+      <sup className="text-[12px]">1</sup>
+    </Text> */}
+      {children}
+    </div>
+  );
+};
+
+const BackgroundImage = ({ children }: { children: React.ReactNode }) => {
+  // return <img
+  //   src="hero_iphone.jpg"
+  //   className={"h-[580px] object-cover col-start-1 row-end-3 row-start-1"}
+  //   alt=""
+  // />;
+  return <div className="h-full col-start-1 row-end-3 row-start-1">{children}</div>;
+};
+
+function Section({ children, height }: { children: React.ReactNode; height: number }) {
+  console.log(height);
+
   return (
     <>
-      <div className="grid grid-rows-2 place-items-center grid-cols-1">
-        <img
-          src="hero_iphone.jpg"
-          className="h-[580px] object-cover col-start-1 row-end-3 row-start-1"
-          alt=""
-        />
-        <div className="row-start-1 col-start-1 h-full pt-12 text-white leading-[1.07143]">
-          {children}
-          {/* <Text className="font-semibold text-[56px] traking-[-.005em]">iPhone 16 Pro</Text>
-          <Text className="text-[28px] text-center tracking-[.007em] mt-[6px]">
-            Hello, Apple Intelligence.
-          </Text> */}
-        </div>
-        <div className="row-start-2 gap-4 col-start-1 flex justify-end items-center flex-col w-full h-full pb-12">
-          <ButtonContainer></ButtonContainer>
-          <Text className="text-[#86868b] text-[21px] tracking-[.011em] leading-[1.19048]">
-            Apple Intelligence coming this fall
-            <sup className="text-[12px]">1</sup>
-          </Text>
-        </div>
+      <div className={`grid grid-rows-2 place-items-center grid-cols-1 h-[${height}px]`}>
+        {children}
       </div>
     </>
   );
@@ -75,5 +114,11 @@ function Section({ children }: { children: React.ReactNode }) {
 
 Section.PrimaryButton = PrimaryButton;
 Section.SecondaryButton = SecondaryButton;
+Section.Header = Header;
+Section.Footer = Footer;
+Section.BackgroundImage = BackgroundImage;
+Section.ButtonContainer = ButtonContainer;
+Section.Title = Title;
+Section.Subtitle = Subtitle;
 
 export { Section };
