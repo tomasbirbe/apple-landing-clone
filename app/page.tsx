@@ -1,5 +1,6 @@
 import { twMerge } from "tailwind-merge";
 import { AppleDisplayFont, AppleTextFont } from "./fonts/fonts";
+import { Section } from "./components/Section";
 
 function Button({ children, className }: React.ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
@@ -18,6 +19,13 @@ function Text({ children, className }: React.HTMLAttributes<HTMLParagraphElement
 export default function Home() {
   return (
     <main className="gap-[12px] flex flex-col">
+      <Section>
+        <Text className="font-semibold text-[56px] traking-[-.005em]">iPhone 16 Pro</Text>
+        <Text className="text-[28px] text-center tracking-[.007em] mt-[6px]">
+          Hello, Apple Intelligence.asdfsd
+        </Text>
+      </Section>
+
       <div className="grid grid-rows-2 place-items-center grid-cols-1">
         <img
           src="hero_iphone.jpg"
