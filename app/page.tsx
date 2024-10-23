@@ -19,7 +19,7 @@ function Text({ children, className }: React.HTMLAttributes<HTMLParagraphElement
 export default function Home() {
   return (
     <main className="gap-[12px] flex flex-col">
-      <Section height={580}>
+      <Section className="sm:h-[580px] lg:h-[692px]">
         <Section.BackgroundImage>
           <img src="hero_iphone.jpg" className={"h-full w-full object-cover"} alt="" />;
         </Section.BackgroundImage>
@@ -39,7 +39,7 @@ export default function Home() {
         </Section.Footer>
       </Section>
 
-      <Section height={580}>
+      <Section className="sm:h-[580px] lg:h-[692px]">
         <Section.BackgroundImage>
           <img src="hero_iphone2.jpg" className={"h-full w-full object-cover"} alt="" />;
         </Section.BackgroundImage>
@@ -52,19 +52,19 @@ export default function Home() {
             <Section.PrimaryButton>Learn more</Section.PrimaryButton>
             <Section.SecondaryButton>Buy</Section.SecondaryButton>
           </Section.ButtonContainer>
-          <p className="text-[#86868b] text-[14px] tracking-[-.016em] leading-[1.19048]">
+          <p className="text-[#1d1d1f] text-[14px] tracking-[-.016em] leading-[1.19048]">
             Apple Intelligence coming this fall
             <sup className="text-[8px]">1</sup>
           </p>
         </Section.Footer>
       </Section>
 
-      <Section height={580}>
+      <Section className="sm:h-[580px] lg:h-[692px]">
         <Section.BackgroundImage>
           <img src="hero_iphone3.jpg" className={"h-full w-full object-cover"} alt="" />;
         </Section.BackgroundImage>
         <Section.Header className="gap-3 flex flex-col">
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1 pt-3">
             <img src="hero_logo.png" className="mx-auto" alt="" width={210} />
             <Section.Subtitle className="text-[#1d1d1f]">Thinstant classic.</Section.Subtitle>
           </div>

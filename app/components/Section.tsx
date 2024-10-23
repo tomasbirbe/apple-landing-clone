@@ -49,6 +49,7 @@ function Title({ children, className }: React.HTMLAttributes<HTMLParagraphElemen
     </p>
   );
 }
+
 function Subtitle({ children, className }: React.HTMLAttributes<HTMLParagraphElement>) {
   return (
     <p
@@ -68,12 +69,7 @@ const ButtonContainer = ({ children }: React.HTMLAttributes<HTMLDivElement>) => 
 
 const Header = ({ children, className }: React.HTMLAttributes<HTMLDivElement>) => {
   return (
-    <div
-      className={twMerge(
-        "row-start-1 col-start-1 h-full pt-12 text-white ",
-        className,
-      )}
-    >
+    <div className={twMerge("row-start-1 col-start-1 h-full pt-12 text-white ", className)}>
       {children}
     </div>
   );
@@ -100,14 +96,10 @@ const BackgroundImage = ({ children }: { children: React.ReactNode }) => {
   return <div className="h-full col-start-1 row-end-3 row-start-1">{children}</div>;
 };
 
-function Section({ children, height }: { children: React.ReactNode; height: number }) {
-  console.log(height);
-
+function Section({ children, className }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <>
-      <div className={`grid grid-rows-2 place-items-center grid-cols-1 h-[${height}px]`}>
-        {children}
-      </div>
+      <div className={twMerge("grid grid-rows-2 place-items-center grid-cols-1",className)}>{children}</div>
     </>
   );
 }
